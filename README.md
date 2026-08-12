@@ -613,6 +613,10 @@ This project is developed with support from the [NLnet Foundation](https://nlnet
 *Made with ❤️ by Eduard Arbitman and the OpenOSINT community*
 ```
 
----
+## Project Status
+
+Currently under active development (September 2026 - August 2027).
+Grant-funded open-source project.
+
 
 
