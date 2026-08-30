@@ -1,5 +1,13 @@
 
 # OpenOSINT Pro
+⚠️ Proof of Concept (v0.1.0-beta)
+
+This is an early-stage proof-of-concept under active development.
+Project runs: September 2026 - August 2027.
+Funded by NLnet Foundation NGI Zero Commons Fund.
+
+---
+
 
 > Open-source OSINT reconnaissance toolkit for domain, email, and network intelligence gathering.
 
