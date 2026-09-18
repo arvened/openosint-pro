@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 11
-
-**Название:** `CHANGELOG.md`
-
-```markdown
 # Changelog
 
 All notable changes to OpenOSINT Pro will be documented in this file.
@@ -10,190 +5,137 @@ All notable changes to OpenOSINT Pro will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
----
-
-## [0.1.0-beta] - 2026-08-04 (In Development)
+## [0.1.0-beta] - 2026-09-02
 
 ### Added
 
-#### Week 3-4: Integration Layer (COMPLETE ✅)
+- Web Scraping Module
+  - Async HTTP scraping with httpx
+  - User-Agent rotation (10+ browser agents)
+  - Robots.txt compliance checking
+  - Automatic retry with exponential backoff
+  - Per-domain rate limiting
+  - HTML link/title/meta extraction
 
-**API Gateway** (middleware.py)
-- APIKey management and validation
-- StandardResponse formatter (unified format)
-- RateLimiter (token bucket algorithm)
-- CORS middleware configuration
-- Request/response logging middleware
-- Error handlers (HTTP, general exceptions)
-- Bearer token authentication
-- Per-key rate limiting
-- Request ID tracking
-- Response time tracking
-- 60%+ coverage on gateway
+- WHOIS Lookup Module
+  - Domain WHOIS information retrieval
+  - Automatic WHOIS server detection (13+ TLDs)
+  - Registrar, dates, nameservers extraction
+  - Batch lookups with concurrency control
+  - Result caching (30-day TTL)
+  - Email extraction (registrant, admin, tech)
 
-**Result Aggregation Engine** (engine.py)
-- AggregatedRecord dataclass
-- DataDeduplicator (SHA256 content-based)
-- TimestampNormalizer (multiple format support)
-- ResultAggregator (core engine)
-- WHOIS result aggregation
-- DNS result aggregation
-- Scraping result aggregation
-- Verification result aggregation
-- Confidence scoring
-- Relationship mapping
-- Comprehensive report generation
-- 60%+ coverage on aggregation
+- DNS Reconnaissance Module
+  - A/AAAA/MX/TXT/SOA/NS/CNAME/SRV records
+  - Reverse DNS lookups
+  - Batch async queries (concurrency: 5)
+  - dnspython + socket fallback
+  - DNS result caching (24-hour TTL)
+  - SPF/DKIM/DMARC detection
 
-**Redis Caching Layer** (redis_cache.py)
-- RedisCache sync client
-- InMemoryCache fallback
-- CacheManager (high-level API)
-- Connection pooling
-- Configurable TTLs per data type (WHOIS: 30d, DNS: 24h, etc.)
-- Cache statistics (hits, misses, sets, deletes)
-- Pattern-based cache invalidation
-- JSON serialization/deserialization
-- Automatic fallback when Redis unavailable
-- 60%+ coverage on caching
+- Integration Layer
+  - RESTful API (FastAPI-compatible)
+  - API key authentication (Bearer tokens)
+  - Token bucket rate limiting
+  - CORS middleware
+  - Request/response logging
+  - Standardized JSON responses
+  - Request ID tracking
 
-**Integration Tests** (test_integration_week3.py)
-- 35+ comprehensive integration tests
-- API Gateway tests (authentication, rate limiting)
-- Aggregation engine tests (dedup, normalization)
-- Caching tests (Redis, in-memory, fallback)
-- 300+ lines of test code
-- 60%+ overall coverage
+- Result Aggregation Engine
+  - Multi-source result consolidation
+  - Confidence scoring per record
+  - Relationship mapping
+  - Comprehensive report generation
 
-### Architecture
-- Full integration of Week 1-2 modules with Week 3-4 gateway
-- Async/await patterns throughout
+- Caching Layer
+  - Redis-backed distributed caching
+  - In-memory fallback (no Redis required)
+  - Configurable TTLs per data type
+  - Cache statistics (hits, misses)
+  - Pattern-based cache invalidation
+  - JSON serialization support
+
+- Political Operations Detection
+  - CIB (Coordinated Inauthentic Behavior) cluster detection
+  - Bot pattern recognition
+  - Content similarity fingerprinting (SHA256)
+  - Temporal coordination analysis
+  - Threat assessment and reporting
+
+- Testing Suite
+  - 70+ unit and integration tests
+  - 61% code coverage across all modules
+  - pytest + pytest-asyncio + pytest-cov
+  - Comprehensive test fixtures
+
+- Documentation
+  - README with installation and usage examples
+  - API endpoint specifications
+  - Project structure overview
+  - Development setup guide
+  - Contributing guidelines
+
+### Status
+
+This is a pre-grant proof-of-concept version. Grant application submitted to NLnet Foundation NGI Zero Commons Fund (2026-06-3ac) - status: pending review.
+
+### Security
+
+- No hardcoded secrets
+- 100% type hints for static analysis
 - Comprehensive error handling
-- Fallback mechanisms for Redis unavailability
-- Production-ready quality
+- Input validation on all endpoints
+- Rate limiting per API key
+- CORS configuration
+- Request logging for audit
 
-### Code Metrics
-- Production Code: 1,200+ lines (Week 3-4 only)
-- Test Code: 300+ lines (Week 3-4 only)
-- Cumulative Production: 2,100+ lines (total)
-- Cumulative Tests: 750+ lines (total)
-- Overall Coverage: 61%
+### Dependencies
 
----
+**Core:**
+- httpx >= 0.24.0 (Async HTTP)
+- pydantic >= 2.0.0 (Data validation)
+- redis >= 4.5.0 (Caching, optional)
 
-## [0.1.0-alpha] - 2026-07-21 (RELEASED ✅)
+**Testing:**
+- pytest >= 7.4.0
+- pytest-asyncio >= 0.21.0
+- pytest-cov >= 4.1.0
 
-### Added
+**Optional:**
+- dnspython >= 2.3.0 (DNS library)
+- beautifulsoup4 >= 4.12.0 (HTML parsing)
 
-#### Week 1-2: Core OSINT Features (COMPLETE ✅)
+### Known Limitations
 
-**Web Scraping Module** (scraping.py)
-- Async HTTP scraper using httpx
-- User-Agent rotation (10+ browser agents)
-- Robots.txt compliance checking with caching
-- Automatic retry logic with exponential backoff
-- Rate limiting per domain (configurable)
-- Link extraction from HTML content
-- Page title and meta description extraction
-- Comprehensive logging for debugging
-- Context manager support for resource management
-- 150+ lines of unit tests (test_scraping.py)
-- 62% coverage on module
-- Ready for production use
+- Docker support coming in Week 5-6
+- GraphQL API planned for future releases
+- Machine learning models in development
+- Advanced analytics features planned
 
-**WHOIS Lookup Module** (whois.py)
-- Domain WHOIS information retrieval
-- Registrar data extraction
-- Domain creation/expiration date parsing
-- WHOIS server detection by TLD (13 TLDs)
-- Caching mechanism for repeated queries
-- Batch WHOIS lookups with concurrency control
-- Error handling for invalid domains
-- Support for internationalized domains (IDN)
-- 180+ lines of unit tests (test_whois.py)
-- 61% coverage on module
-- Ready for production use
+### Next Steps
 
-**DNS Reconnaissance Module** (dns_recon.py)
-- A record lookup (IPv4)
-- AAAA record lookup (IPv6)
-- MX record enumeration with priority
-- TXT record retrieval (SPF, DKIM, DMARC)
-- SOA record parsing
-- NS server enumeration
-- CNAME record resolution
-- SRV record lookup
-- Reverse DNS resolution
-- Async batch queries for performance
-- Fallback to socket when dnspython unavailable
-- 180+ lines of unit tests (test_dns_recon.py)
-- 63% coverage on module
-- Ready for production use
-
-### Code Metrics
-- Production Code: 900+ lines
-- Test Code: 450+ lines
-- Test Coverage: 60%+ (consistent across all modules)
-- Modules Created: 3 (scraping, whois, dns_recon)
-- Test Files Created: 3 (test_scraping, test_whois, test_dns_recon)
-- Daily Commits: 3-5 meaningful commits per module
-
----
-
-## Roadmap
-
-### Week 5-6 (Aug 12-25): Final Polish
-- Enhanced test suite
+After grant approval:
+- Security audit
 - API documentation (Swagger/OpenAPI)
 - Deployment guide
-- Security audit
-- Performance optimization
+- Docker image
 - v0.1.0 production release
 
-### Future Releases
-- GraphQL API
-- Machine learning models
-- Advanced analytics
-- Custom rules engine
-- Microservices architecture
-- Global scaling
+---
+
+## [Unreleased]
+
+### Planned
+
+- GraphQL API layer
+- Machine learning models for pattern detection
+- Advanced analytics dashboard
+- WebSocket support for real-time updates
+- Database persistence layer
+- Multi-tenant support
 
 ---
 
-## Standards & Compliance
-
-### Code Quality
-- ✅ Python 3.10+
-- ✅ Type hints 100%
-- ✅ Docstrings complete
-- ✅ Error handling comprehensive
-- ✅ Logging throughout
-- ✅ No hardcoded secrets
-- ✅ MIT License
-
-### Testing
-- ✅ pytest framework
-- ✅ 60%+ coverage
-- ✅ Unit tests included
-- ✅ Integration tests included
-- ✅ Edge cases covered
-- ✅ Error scenarios tested
-
-### NLnet Grant Compliance
-- ✅ Public GitHub repository
-- ✅ MIT License file
-- ✅ README documentation
-- ✅ Atomic git commits
-- ✅ Clean code quality
-- ✅ Comprehensive tests
-
----
-
-**Last Updated:** August 11, 2026  
-**Status:** Week 1-4 Complete  
-**Next Release:** v0.1.0 (August 25, 2026)  
-**Maintainers:** Eduard Arbitman, COVENT TECH
-```
-
----
+**Note:** This project is in active development. Version numbers and release dates are subject to change based on grant approval timeline.
 
