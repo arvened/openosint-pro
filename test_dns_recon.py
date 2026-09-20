@@ -167,7 +167,7 @@ class TestDNSResolver:
         """Test reverse DNS lookup."""
         resolver = DNSResolver()
         
-        with patch.object(resolver, '_reverse_lookup_socket') as mock_reverse:
+        with patch.object(resolver, '_reverse_lookup_dnspython') as mock_reverse, patch.object(resolver, '_reverse_lookup_socket', return_value="example.com"):
             mock_reverse.return_value = "example.com"
             
             result = await resolver.reverse_lookup("192.168.1.1")
