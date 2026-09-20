@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 5
-
-**Название:** `engine.py`
-
-```python
 """
 Result Aggregation Engine for OpenOSINT Pro
 
@@ -402,7 +397,3 @@ async def aggregate_domain_osint(
             aggregator.add_record(domain, record)
     
     return aggregator.get_comprehensive_report(domain)
-```
-
----
-

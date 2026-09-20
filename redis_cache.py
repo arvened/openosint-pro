@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 6
-
-**Название:** `redis_cache.py`
-
-```python
 """
 Redis Caching Layer for OpenOSINT Pro
 
@@ -346,7 +341,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
----
-
