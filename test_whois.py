@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 8
-
-**Название:** `test_whois.py`
-
-```python
 """
 Tests for WHOIS Lookup Module
 
@@ -287,7 +282,3 @@ def lookup():
 def parser():
     """Fixture for WHOIS parser."""
     return WHOISParser()
-```
-
----
-

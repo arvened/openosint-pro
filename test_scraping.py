@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 7
-
-**Название:** `test_scraping.py`
-
-```python
 """
 Tests for Web Scraping Module
 
@@ -197,7 +192,3 @@ def scraper():
 def config():
     """Fixture for config."""
     return ScraperConfig()
-```
-
----
-

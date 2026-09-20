@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 10
-
-**Название:** `test_integration_week3.py`
-
-```python
 """
 Integration tests for Week 3-4 modules:
 - API Gateway

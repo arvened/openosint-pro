@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 9
-
-**Название:** `test_dns_recon.py`
-
-```python
 """
 Tests for DNS Reconnaissance Module
 

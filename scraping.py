@@ -1,8 +1,3 @@
-# ✅ ФАЙЛ 1
-
-**Название:** `scraping.py`
-
-```python
 """
 Web Scraping Module for OpenOSINT Pro
 
