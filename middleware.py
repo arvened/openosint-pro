@@ -154,7 +154,7 @@ class RateLimiter:
         
         if identifier not in self.buckets:
             self.buckets[identifier] = {
-                "tokens": limit,
+                "tokens": limit - 1,
                 "last_update": now,
                 "window": window,
             }
