@@ -102,7 +102,7 @@ class WHOISParser:
                 date_str = line.split(":", 1)[1].strip()
                 record.updated_date = WHOISParser._parse_date(date_str)
             
-            if "nameserver" in line.lower() or "nserver:" in line.lower():
+            if any(k in line.lower() for k in ("nameserver", "name server", "nserver:")):
                 ns = line.split(":", 1)[1].strip()
                 if ns and ns not in record.nameservers:
                     record.nameservers.append(ns)
