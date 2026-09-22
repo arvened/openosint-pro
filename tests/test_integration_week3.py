@@ -491,6 +491,7 @@ class TestInMemoryCache:
         assert result is None
 
 
+@pytest.mark.slow
 class TestRedisCache:
     """Test Redis cache."""
     
@@ -525,6 +526,7 @@ class TestRedisCache:
         assert "sets" in stats
 
 
+@pytest.mark.slow
 class TestCacheManager:
     """Test cache manager."""
     
