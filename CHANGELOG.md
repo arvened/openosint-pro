@@ -2,7 +2,16 @@
 
 Dates are ISO 8601.
 
-## [Unreleased] - 2026-09-20
+## [Unreleased] - 2026-09-27
+
+### Changed
+- README: added a section on the use of generative AI; corrected the test and CI description; quick start skips the slow Redis tests.
+- CONTRIBUTING rewritten (it was incomplete), including rules for disclosing AI-generated code.
+
+### Removed
+- Out-of-scope files and internal reports removed from the git history.
+
+## 2026-09-20
 
 ### Fixed
 - Removed pasted instruction text from scraping.py, engine.py, redis_cache.py and four test files (they were not valid Python).
